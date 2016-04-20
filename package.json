@@ -1,0 +1,35 @@
+{
+  "name": "@wegolook/joi-objectid",
+  "version": "0.0.1",
+  "description": "Extends Joi with Joi.objectId()",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tap 'test/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wegolook/joi-objectid.git"
+  },
+  "keywords": [
+    "hapi",
+    "schema",
+    "validation",
+    "joi",
+    "objectid"
+  ],
+  "author": "WeGoLook, LLC <dev@wegolook.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/wegolook/joi-objectid/issues"
+  },
+  "homepage": "https://github.com/wegolook/joi-objectid#readme",
+  "devDependencies": {
+    "tap": "^5.7.1"
+  },
+  "peerDependencies": {
+    "joi": "~8.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
