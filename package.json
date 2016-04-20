@@ -4,7 +4,7 @@
   "description": "Extends Joi with Joi.objectId()",
   "main": "lib/index.js",
   "scripts": {
-    "test": "tap 'test/**/*.js'"
+    "test": "lab -v -D"
   },
   "repository": {
     "type": "git",
@@ -24,12 +24,19 @@
   },
   "homepage": "https://github.com/wegolook/joi-objectid#readme",
   "devDependencies": {
-    "tap": "^5.7.1"
+    "code": "^2.2.0",
+    "lab": "^10.3.1",
+    "tap": "^5.7.1",
+    "joi": "~8.0.5"
   },
   "peerDependencies": {
     "joi": "~8.0.0"
   },
   "engines": {
     "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "bson": "^0.4.23",
+    "hoek": "^3.0.4"
   }
 }
