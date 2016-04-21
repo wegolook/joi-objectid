@@ -5,9 +5,8 @@
 const Lab = require('lab');
 const Code = require('code');
 const Joi = require('joi');
-const Helper = require('./helper');
 const ObjectId = require('bson').ObjectId;
-const joiObjectid = require('../lib/objectId')
+const joiObjectid = require('../');
 
 // Test shortcuts
 
