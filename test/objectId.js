@@ -19,6 +19,13 @@ const expect = Code.expect;
 const id12 = "A1B2c3d4E5f6";
 const id24 = "A1B2c3d4E5f6A1B2c3d4E5f6";
 
+
+const lt12 = 'a1a1a1a1a1a';
+const between = id12 + 'abcdef';
+const gt24 = id24 + 'a';
+const invalidInput = gt24;
+
+
 Joi.objectId = function () {
   return joiObjectid;
 };
@@ -44,43 +51,46 @@ describe('objectId', () => {
   it('fails on boolean', (done) => {
     Joi.objectId().validate(true, (err, value) => {
       expect(err).to.exist();
-      done();
+      expect(value).to.equal(true);
     });
 
     Joi.objectId().validate(false, (err, value) => {
       expect(err).to.exist();
-      done();
+      expect(value).to.equal(false);
     });
+
+    done();
   });
 
   it('fails when fewer than 12 characters', (done) => {
-    Joi.objectId().validate('a1a1a1a1a1a', (err, value) => {
+    Joi.objectId().validate(lt12, (err, value) => {
       expect(err).to.exist();
-      expect(value).to.equal(undefined);
+      expect(value).to.equal(lt12);
       done();
     });
   });
 
   it('fails when between 12 and 24 characters', (done) => {
-    Joi.objectId().validate(id12 + 'a', (err, value) => {
+    Joi.objectId().validate(between, (err, value) => {
       expect(err).to.exist();
-      expect(value).to.equal(undefined);
+      expect(value).to.equal(between);
       done();
     });
   });
 
   it('fails when greater than 24 characters', (done) => {
-    Joi.objectId().validate(id24 + 'a', (err, value) => {
+
+    Joi.objectId().validate(gt24, (err, value) => {
       expect(err).to.exist();
-      expect(value).to.equal(undefined);
+      expect(value).to.equal(gt24);
       done();
     });
   });
 
   it('fails on invalid input and convert disabled', (done) => {
-    Joi.objectId().options({ convert: false }).validate(id24 + 'a', (err, value) => {
+    Joi.objectId().options({ convert: false }).validate(invalidInput, (err, value) => {
       expect(err).to.exist();
-      expect(value).to.equal(undefined);
+      expect(value).to.equal(invalidInput);
       done();
     });
   });
@@ -127,18 +137,16 @@ describe('objectId', () => {
   });
 
   it('has a useful error message', (done) => {
-
-    const result = Joi.objectId().validate('1234');
-
-    expect(result.error.message).to.equal('useful message');
+    const result = Joi.objectId().validate(lt12);
+    expect(result.error.message).to.equal('"value" must have 12 or 24 characters');
     done();
   });
 
   it('returns the original value given an invalid input', (done) => {
 
-    const result = Joi.objectId().validate('1234');
+    const result = Joi.objectId().validate(lt12);
 
-    expect(result.value).to.equal('1324');
+    expect(result.value).to.equal(lt12);
     done();
   });
 });
