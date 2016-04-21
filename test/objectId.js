@@ -121,4 +121,12 @@ describe('objectId', () => {
       done();
     });
   });
+
+  it('has a useful error message', (done) => {
+
+    const result = Joi.objectId().validate('1234');
+
+    expect(result.error.message).to.equal('useful message');
+    done();
+  });
 });
