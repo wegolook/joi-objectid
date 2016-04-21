@@ -4,9 +4,12 @@
 
 const Lab = require('lab');
 const Code = require('code');
-const Joi = require('joi');
 const ObjectId = require('bson').ObjectId;
+
+const Joi = require('joi');
 const joiObjectid = require('../');
+
+Joi.objectId = joiObjectid;
 
 // Test shortcuts
 
@@ -25,9 +28,7 @@ const gt24 = id24 + 'a';
 const invalidInput = gt24;
 
 
-Joi.objectId = function () {
-  return joiObjectid;
-};
+
 
 describe('objectId', () => {
 
