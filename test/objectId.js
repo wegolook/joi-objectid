@@ -25,15 +25,19 @@ Joi.objectId = function () {
 
 describe('objectId', () => {
 
-  it('does not fail on undefined or null', (done) => {
+  it('does not fail on undefined', (done) => {
     Joi.objectId().validate(undefined, (err, value) => {
-      expect(err).to.not.exist();
-      expect(value).to.not.exist();
+      expect(err).to.be.null();
+      expect(value).to.be.undefined()
+      done();
     });
+  });
 
+  it('fails on null', (done) => {
     Joi.objectId().validate(null, (err, value) => {
-      expect(err).to.not.exist();
-      expect(value).to.not.exist();
+      expect(err).to.exist();
+      expect(value).to.be.null();
+      done();
     });
   });
 
@@ -127,6 +131,14 @@ describe('objectId', () => {
     const result = Joi.objectId().validate('1234');
 
     expect(result.error.message).to.equal('useful message');
+    done();
+  });
+
+  it('returns the original value given an invalid input', (done) => {
+
+    const result = Joi.objectId().validate('1234');
+
+    expect(result.value).to.equal('1324');
     done();
   });
 });
