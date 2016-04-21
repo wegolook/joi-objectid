@@ -16,10 +16,10 @@ const describe = lab.describe;
 const it = lab.it;
 const expect = Code.expect;
 
+// Values used below
+
 const id12 = "A1B2c3d4E5f6";
 const id24 = "A1B2c3d4E5f6A1B2c3d4E5f6";
-
-
 const lt12 = 'a1a1a1a1a1a';
 const between = id12 + 'abcdef';
 const gt24 = id24 + 'a';
