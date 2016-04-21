@@ -7,7 +7,7 @@ This npm package is intended to allow Joi to validate BSON ObjectId objects
 ```
 // import and assignment
 const Joi = require('joi'); // use version ~8.0.0
-Joi.objectId = () => require('@wegolook/joi-objectid'); // set objectId on Joi
+Joi.objectId = require('@wegolook/joi-objectid'); // set objectId on Joi
 // now you can use Joi anywhere, just like you usually would.
 
 // ...then
