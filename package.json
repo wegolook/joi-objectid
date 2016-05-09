@@ -1,6 +1,6 @@
 {
   "name": "@wegolook/joi-objectid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extends Joi with Joi.objectId()",
   "main": "lib/index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "joi": "~8.0.5"
   },
   "peerDependencies": {
-    "joi": "~8.0.0"
+    "joi": "^8.0.0"
   },
   "engines": {
     "node": ">=4.0.0"
