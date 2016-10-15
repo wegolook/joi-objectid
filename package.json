@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/wegolook/joi-objectid#readme",
   "devDependencies": {
+    "joi": "^9.0.0",
     "code": "^2.2.0",
     "lab": "^10.3.1"
   },
