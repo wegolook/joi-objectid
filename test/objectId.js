@@ -6,10 +6,7 @@ const Lab = require('lab');
 const Code = require('code');
 const ObjectId = require('bson').ObjectId;
 
-const Joi = require('joi');
-const joiObjectid = require('../');
-
-Joi.objectId = joiObjectid;
+const Joi = require('joi').extend(require('../'));
 
 // Test shortcuts
 
@@ -138,7 +135,7 @@ describe('objectId', () => {
 
   it('has a useful error message', (done) => {
     const result = Joi.objectId().validate(lt12);
-    expect(result.error.message).to.equal('"value" must have 12 or 24 characters');
+    expect(result.error.message).to.equal('"value" must be a valid ObjectId');
     done();
   });
 
