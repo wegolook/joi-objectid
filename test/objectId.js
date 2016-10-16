@@ -6,7 +6,8 @@ const Lab = require('lab');
 const Code = require('code');
 const ObjectId = require('bson').ObjectId;
 
-const Joi = require('joi').extend(require('../'));
+const JoiObjectId = require('../');
+const Joi = require('joi').extend(JoiObjectId);
 
 // Test shortcuts
 
