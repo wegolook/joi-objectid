@@ -36,7 +36,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "bson": "^0.4.23"
+    "bson": "^1.0.0"
   },
   "files": [
     "lib"
