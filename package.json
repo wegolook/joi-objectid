@@ -1,6 +1,6 @@
 {
   "name": "@wegolook/joi-objectid",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Extends Joi with Joi.objectId()",
   "main": "lib/objectId.js",
   "scripts": {
