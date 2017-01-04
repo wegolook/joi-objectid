@@ -1,8 +1,8 @@
-#joi-objectid
+# @wegolook/joi-objectid
 
-This npm package is intended to allow Joi to validate BSON ObjectId objects
+[Joi](https://github.com/hapijs/joi) extension to support BSON ObjectId
 
-### usage
+## Usage
 
 ```javascript
 // import and assignment
@@ -17,3 +17,7 @@ const result = myJoi.objectId().validate(myObjectId);
 // ...or
 myJoi.objectId().validate(myObjectId, (err, value) => { /*...*/ });
 ```
+
+## CI Status
+
+[![Codeship Status for wegolook/joi-objectid](https://app.codeship.com/projects/c4bb03c0-e93f-0133-69df-4a62c9b002a0/status?branch=master)](https://app.codeship.com/projects/147517)
