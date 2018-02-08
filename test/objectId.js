@@ -30,23 +30,21 @@ const invalidInput = gt24;
 
 describe('objectId', () => {
 
-  it('does not fail on undefined', (done) => {
+  it('does not fail on undefined', () => {
     Joi.objectId().validate(undefined, (err, value) => {
       expect(err).to.be.null();
-      expect(value).to.be.undefined()
-      done();
+      expect(value).to.be.undefined()    
     });
   });
 
-  it('fails on null', (done) => {
+  it('fails on null', () => {
     Joi.objectId().validate(null, (err, value) => {
       expect(err).to.exist();
       expect(value).to.be.null();
-      done();
     });
   });
 
-  it('fails on boolean', (done) => {
+  it('fails on boolean', () => {
     Joi.objectId().validate(true, (err, value) => {
       expect(err).to.exist();
       expect(value).to.equal(true);
@@ -57,94 +55,83 @@ describe('objectId', () => {
       expect(value).to.equal(false);
     });
 
-    done();
   });
 
-  it('fails when fewer than 12 characters', (done) => {
+  it('fails when fewer than 12 characters', () => {
     Joi.objectId().validate(lt12, (err, value) => {
       expect(err).to.exist();
       expect(value).to.equal(lt12);
-      done();
     });
   });
 
-  it('fails when between 12 and 24 characters', (done) => {
+  it('fails when between 12 and 24 characters', () => {
     Joi.objectId().validate(between, (err, value) => {
       expect(err).to.exist();
       expect(value).to.equal(between);
-      done();
     });
   });
 
-  it('fails when greater than 24 characters', (done) => {
+  it('fails when greater than 24 characters', () => {
 
     Joi.objectId().validate(gt24, (err, value) => {
       expect(err).to.exist();
       expect(value).to.equal(gt24);
-      done();
     });
   });
 
-  it('fails on invalid input and convert disabled', (done) => {
+  it('fails on invalid input and convert disabled', () => {
     Joi.objectId().options({ convert: false }).validate(invalidInput, (err, value) => {
       expect(err).to.exist();
       expect(value).to.equal(invalidInput);
-      done();
     });
   });
 
-  it('succeeds on 12 character string', (done) => {
+  it('succeeds on 12 character string', () => {
     Joi.objectId().validate(id12, (err, value) => {
       expect(err).to.not.exist();
       expect(value instanceof ObjectId).to.be.true();
-      done();
     });
   });
 
-  it('succeeds on 24 character string', (done) => {
+  it('succeeds on 24 character string', () => {
     Joi.objectId().validate(id24, (err, value) => {
       expect(err).to.not.exist();
       expect(value instanceof ObjectId).to.be.true();
-      done();
     });
   });
 
-  it('matches the input string', (done) => {
+  it('matches the input string', () => {
     Joi.objectId().validate(id24, (err, value) => {
       expect(err).to.not.exist();
       expect(value instanceof ObjectId).to.be.true();
       expect(value.equals(id24)).to.be.true();
-      done();
     });
   });
 
-  it('succeeds on instance of ObjectId', (done) => {
+  it('succeeds on instance of ObjectId', () => {
     Joi.objectId().validate(ObjectId(id24), (err, value) => {
       expect(value instanceof ObjectId).to.be.true();
       expect(value.equals(ObjectId(id24))).to.be.true();
-      done();
     });
   });
 
-  it('succeeds on valid input and convert disabled', (done) => {
+  it('succeeds on valid input and convert disabled', () => {
     Joi.objectId().options({ convert: false }).validate(id24, (err, value) => {
       expect(err).to.not.exist();
       expect(value).to.equal(id24);
-      done();
     });
   });
 
-  it('has a useful error message', (done) => {
+  it('has a useful error message', () => {
     const result = Joi.objectId().validate(lt12);
     expect(result.error.message).to.equal('"value" must be a valid ObjectId');
-    done();
   });
 
-  it('returns the original value given an invalid input', (done) => {
+  it('returns the original value given an invalid input', () => {
 
     const result = Joi.objectId().validate(lt12);
 
     expect(result.value).to.equal(lt12);
-    done();
+
   });
 });
