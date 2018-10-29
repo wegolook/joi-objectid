@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/wegolook/joi-objectid#readme",
   "devDependencies": {
-    "code": "^5.0.0",
-    "joi": "^13.7.0",
-    "lab": "^15.2.1"
+    "code": "^5.2.1",
+    "joi": "^14.0.1",
+    "lab": "^17.0.2"
   },
   "peerDependencies": {
-    "joi": ">=9.0.0 <14.0.0"
+    "joi": ">=9 <=14"
   },
   "engines": {
-    "node": "^8.9.4"
+    "node": ">=8"
   },
   "dependencies": {
     "bson": "^1.0.5"
