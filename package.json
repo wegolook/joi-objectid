@@ -30,7 +30,7 @@
     "lab": "^17.0.2"
   },
   "peerDependencies": {
-    "joi": ">=9 <=14"
+    "joi": ">=9 <=15"
   },
   "engines": {
     "node": ">=8"
