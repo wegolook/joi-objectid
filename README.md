@@ -6,7 +6,7 @@
 
 ```javascript
 // import and assignment
-const Joi = require('joi'); // use version ^9.0.0
+const Joi = require('@hapi/joi'); // use version <=15.x.x
 const joiObjectId = require('@wegolook/joi-objectid');
 const myJoi = Joi.extend(joiObjectId);
 
