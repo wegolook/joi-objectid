@@ -2,12 +2,12 @@
 
 // Load modules
 
-const Lab = require('lab');
-const Code = require('code');
+const Lab = require('@hapi/lab');
+const Code = require('@hapi/code');
 const ObjectId = require('bson').ObjectId;
 
 const JoiObjectId = require('../');
-const Joi = require('joi').extend(JoiObjectId);
+const Joi = require('@hapi/joi').extend(JoiObjectId);
 
 // Test shortcuts
 
@@ -33,7 +33,7 @@ describe('objectId', () => {
   it('does not fail on undefined', () => {
     Joi.objectId().validate(undefined, (err, value) => {
       expect(err).to.be.null();
-      expect(value).to.be.undefined()    
+      expect(value).to.be.undefined()
     });
   });
 
